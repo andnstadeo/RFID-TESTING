@@ -3,7 +3,6 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-// Configuration
 #define SS_PIN 10
 #define RST_PIN 9
 #define GREEN_LED 2
@@ -11,9 +10,8 @@
 #define BUZZER 4
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); 
-MFRC522 rfid(SS_PIN, RST_PIN);
+MFRC522 rfid(SS_PIN, RST_PIN)
 
-// --- TEST CONFIGURATION ---
 // Replace these with your actual Master Card UID bytes
 byte masterCard[] = {0x00, 0x00, 0x00, 0x00}; 
 
@@ -61,7 +59,6 @@ void loop() {
   showStandbyMessage();
 }
 
-// --- Helper Functions ---
 
 bool isMaster(byte scanned[]) {
   for (byte i = 0; i < 4; i++) {
